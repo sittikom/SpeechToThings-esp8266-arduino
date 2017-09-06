@@ -24,6 +24,7 @@ int timer = 0;
 MicroGear microgear(client);
 
 //////////////////////การรับค่าจากการ subscribe Topic///////////////////////////////////
+
 /* If a new message arrives, do this */
 void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
     Serial.print("Incoming message --> ");
@@ -36,6 +37,7 @@ void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
     digitalWrite(15, HIGH);
     }
 }
+
 //////////////////////////////////////////////////////////////////////////////////////
 
 void onFoundgear(char *attribute, uint8_t* msg, unsigned int msglen) {
@@ -59,8 +61,10 @@ void onConnected(char *attribute, uint8_t* msg, unsigned int msglen) {
     microgear.setName(ALIAS);
     
 //////////////////////การ subscribe topic ///////////////////////////////////
+
     char TopicApp = "Topicในแอพ";
     microgear.subscribe(char TopicApp);
+    
 //////////////////////////////////////////////////////////////////////////////
     
 }
