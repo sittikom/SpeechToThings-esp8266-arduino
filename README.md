@@ -32,7 +32,8 @@ void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
     Serial.println((char *)msg);
     
     String msg2 = String((char*)msg);
-///ข้อความที่ได้จากการ Publish ในแอพ SpeechToThings ตัวอย่างเช่นในช่อง Publish ใส่ ON 
+///ข้อความที่ได้จากการ Publish ในแอพ SpeechToThings ตัวอย่างเช่นในช่อง Publish ใส่ ON
+
   if (msg2 == "ON") {
     digitalWrite(15, HIGH);
     }
@@ -108,7 +109,9 @@ void setup() {
 }
 
 void loop() {
+
     /* To check if the microgear is still connected */
+    
     if (microgear.connected()) {
         Serial.println("connected");
         /* Call this method regularly otherwise the connection may be lost */
