@@ -26,6 +26,7 @@ MicroGear microgear(client);
 //////////////////////การรับค่าจากการ subscribe Topic///////////////////////////////////
 
 /* If a new message arrives, do this */
+
 void onMsghandler(char *topic, uint8_t* msg, unsigned int msglen) {
     Serial.print("Incoming message --> ");
     msg[msglen] = '\0';
@@ -56,9 +57,12 @@ void onLostgear(char *attribute, uint8_t* msg, unsigned int msglen) {
 }
 
 /* When a microgear is connected, do this */
+
 void onConnected(char *attribute, uint8_t* msg, unsigned int msglen) {
     Serial.println("Connected to NETPIE...");
+    
     /* Set the alias of this microgear ALIAS */
+    
     microgear.setName(ALIAS);
     
 //////////////////////การ subscribe topic ///////////////////////////////////
@@ -72,8 +76,11 @@ void onConnected(char *attribute, uint8_t* msg, unsigned int msglen) {
 
 
 void setup() {
+
     /* Add Event listeners */
+    
     /* Call onMsghandler() when new message arraives */
+    
     microgear.on(MESSAGE,onMsghandler);
 
     /* Call onFoundgear() when new gear appear */
@@ -90,6 +97,7 @@ void setup() {
 
     /* Initial WIFI, this is just a basic method to configure WIFI on ESP8266.                       */
     /* You may want to use other method that is more complicated, but provide better user experience */
+    
     if (WiFi.begin(ssid, password)) {
         while (WiFi.status() != WL_CONNECTED) {
             delay(500);
